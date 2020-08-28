@@ -1,21 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import * as Font from 'expo-font';
+
+import Src from './src';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+  const [fontLoaded, setFontLoaded] = useState(false);
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  useEffect(() => {
+    async function fetchFont() {
+      await Font.loadAsync({
+        PoppinsBold: require('./src/assets/Fonts/Poppins-Bold.ttf'),
+        PoppinsLight: require('./src/assets/Fonts/Poppins-Light.ttf'),
+        PoppinsRegular: require('./src/assets/Fonts/Poppins-Regular.ttf'),
+      });
+
+      setFontLoaded(true);
+    }
+    fetchFont();
+  }, []);
+
+  console.ignoredYellowBox = ['Warning: Each', 'Warning: Failed'];
+  return fontLoaded && <Src />;
+}
