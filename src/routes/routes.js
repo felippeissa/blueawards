@@ -19,13 +19,12 @@ export default function Routes() {
     return (
         <NavigationContainer headerMode="none">
             <Stack.Navigator headerMode="none">
-                <Stack.Screen name={RouteList.DASHBOARD} component={DashboardScreen} />
-
                 <Stack.Screen name={RouteList.WELCOME} component={WelcomeScreen} />
                 <Stack.Screen name={RouteList.SIGN_IN} component={SignInScreen} />
                 <Stack.Screen name={RouteList.SIGN_UP} component={SignUpScreen} />
                 <Stack.Screen name={RouteList.FORGOT_PASSWORD} component={ForgotPasswordScreen} />
                 <Stack.Screen name={RouteList.PREDASHBOARD} component={PreDashboard} />
+                <Stack.Screen name={RouteList.DASHBOARD} component={DashboardScreen} />
                 <Stack.Screen name={RouteList.DETAILS} component={Details} />
             </Stack.Navigator>
         </NavigationContainer>
