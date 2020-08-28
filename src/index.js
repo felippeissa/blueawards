@@ -1,9 +1,10 @@
 import React from 'react';
+import Routes from './routes/routes';
 
 function App() {
     console.disableYellowBox = true;
     return (
-        <Text>Index</Text>
+        <Routes />
     );
 }
 
